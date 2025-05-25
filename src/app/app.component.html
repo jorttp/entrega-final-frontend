@@ -1,87 +1,53 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Formulario de Pedido</title>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="app.component.scss">
-  <style>
-    body {
-      font-family: "Times New Roman", Georgia, Serif;
-      max-width: 900px;
-      margin: auto;
-      padding: 20px;
-    }
-
-    h1, h2, h3, h4, h5, h6 {
-      font-family: "Playfair Display";
-      letter-spacing: 5px;
-    }
-
-    input, select {
-      width: 100%;
-      padding: 12px;
-      margin: 10px 0;
-      box-sizing: border-box;
-    }
-
-    button {
-      padding: 12px 24px;
-      background-color: #ccc;
-      border: none;
-      cursor: pointer;
-    }
-
-    button:hover {
-      background-color: #bbb;
-    }
-  </style>
-</head>
-<body>
-
-<header style="text-align:center; margin-bottom: 40px;">
+<header class="titulo">
   <h1>Realizar Pedido</h1>
 </header>
 
-<form>
-  <label for="cliente">Cliente:</label>
-  <input type="text" id="cliente" name="cliente" placeholder="Nombre del cliente" required>
+<div class="pedido-formulario">
+  <form (ngSubmit)="enviarPedido()">
 
-  <label for="producto">Producto:</label>
-  <input type="text" id="producto" name="producto" placeholder="Producto solicitado" required>
+    <label>Cliente:</label>
+    <input type="text" [(ngModel)]="cliente" name="cliente" required>
 
-  <label for="cantidad">Cantidad:</label>
-  <input type="number" id="cantidad" name="cantidad" min="1" required>
+    <label>Departamento:</label>
+    <input type="text" [(ngModel)]="departamento" name="departamento" required>
 
-  <label for="costo">Costo:</label>
-  <input type="number" id="costo" name="costo" step="0.01" required>
+    <label>Ciudad:</label>
+    <input type="text" [(ngModel)]="ciudad" name="ciudad" required>
 
-  <label for="abono">Abono:</label>
-  <input type="number" id="abono" name="abono" step="0.01" required>
+    <label>Dirección de Entrega:</label>
+    <input type="text" [(ngModel)]="direccionEntrega" name="direccionEntrega" required>
 
-  <label for="restante">Restante:</label>
-  <input type="number" id="restante" name="restante" step="0.01" required>
+    <label>Fecha de Reserva:</label>
+    <input type="date" [(ngModel)]="fechaReserva" name="fechaReserva" required>
 
-  <label for="departamento">Departamento:</label>
-  <input type="text" id="departamento" name="departamento" required>
+    <label>Fecha de Entrega:</label>
+    <input type="date" [(ngModel)]="fechaEntrega" name="fechaEntrega" required>
 
-  <label for="ciudad">Ciudad:</label>
-  <input type="text" id="ciudad" name="ciudad" required>
+    <label>ID del Pedido:</label>
+    <input type="text" [(ngModel)]="id" name="id" required>
 
-  <label for="direccionEntrega">Dirección de Entrega:</label>
-  <input type="text" id="direccionEntrega" name="direccionEntrega" required>
+    <div *ngFor="let producto of productos; let i = index" class="producto-linea">
+      <label>Producto #{{i + 1}}:</label>
+      <input type="text" [(ngModel)]="producto.nombre" name="productoNombre{{i}}" required>
 
-  <label for="fechaReserva">Fecha de Reserva:</label>
-  <input type="date" id="fechaReserva" name="fechaReserva" required>
+      <label>Cantidad:</label>
+      <input type="number" [(ngModel)]="producto.cantidad" name="productoCantidad{{i}}" (input)="calcularTotales()" min="1" required>
 
-  <label for="fechaEntrega">Fecha de Entrega:</label>
-  <input type="date" id="fechaEntrega" name="fechaEntrega" required>
+      <label>Precio:</label>
+      <input type="number" [(ngModel)]="producto.precio" name="productoPrecio{{i}}" (input)="calcularTotales()" step="0.01" required>
+    </div>
 
-  <label for="id">ID del Pedido:</label>
-  <input type="text" id="id" name="id" required>
+    <button type="button" class="agregar" (click)="agregarProducto()">+ Agregar Producto</button>
 
-  <button type="submit">Enviar Pedido</button>
-</form>
+    <label>Abono:</label>
+    <input type="number" [(ngModel)]="abono" name="abono" (input)="calcularTotales()" step="0.01" required>
 
-</body>
-</html>
+    <div class="resumen">
+      <p><strong>Total:</strong> ${{ total.toFixed(2) }}</p>
+      <p><strong>Restante:</strong> ${{ restante.toFixed(2) }}</p>
+    </div>
+
+    <button type="submit" class="enviar">Enviar Pedido</button>
+  </form>
+</div>
+
