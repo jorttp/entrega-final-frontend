@@ -48,7 +48,6 @@ export class AppComponent {
       direccionEntrega: this.direccionEntrega,
       fechaReserva: this.fechaReserva,
       fechaEntrega: this.fechaEntrega,
-      id: this.id,
       productos: this.productos,
       abono: this.abono,
       total: this.total,

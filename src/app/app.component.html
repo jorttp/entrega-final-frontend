@@ -23,9 +23,6 @@
     <label>Fecha de Entrega:</label>
     <input type="date" [(ngModel)]="fechaEntrega" name="fechaEntrega" required>
 
-    <label>ID del Pedido:</label>
-    <input type="text" [(ngModel)]="id" name="id" required>
-
     <div *ngFor="let producto of productos; let i = index" class="producto-linea">
       <label>Producto #{{i + 1}}:</label>
       <input type="text" [(ngModel)]="producto.nombre" name="productoNombre{{i}}" required>
