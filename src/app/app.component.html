@@ -30,12 +30,17 @@
     <label>Correo electrónico:</label>
     <input type="text" [(ngModel)]="correo" name="correo" required>
 
-    <label>Dirección de Residencia Ciudad:</label>
+    <label>Dirección de Residencia:</label>
     <input type="text" [(ngModel)]="direccion" name="direccion" required>
 
-    <label>Ciudad:</label>
-    <input type="text" [(ngModel)]="ciudad" name="ciudad" required>
+    <label>Ciudad - ID:</label>
+    <input type="text" [(ngModel)]="ciudad.id" name="ciudadId" required>
 
+    <label>Ciudad:</label>
+    <input type="text" [(ngModel)]="ciudad.nombre" name="ciudadNombre" required>
+
+    <label>Departamento:</label>
+    <input type="text" [(ngModel)]="ciudad.departamento" name="ciudadDepartamento" required>
 
     <button type="submit" class="enviar">Agregar</button>
   </form>
