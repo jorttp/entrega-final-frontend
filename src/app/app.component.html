@@ -1,50 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Lilfac</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="assets/lilfac.ico" />
+</head>
+
 <header class="titulo">
-  <h1>Realizar Pedido</h1>
+  <h1>Agregar nuevo cliente</h1>
 </header>
 
 <div class="pedido-formulario">
-  <form (ngSubmit)="enviarPedido()">
+  <form (ngSubmit)="agregarCliente()">
 
-    <label>Cliente:</label>
-    <input type="text" [(ngModel)]="cliente" name="cliente" required>
+    <label>Nombre:</label>
+    <input type="text" [(ngModel)]="nombre" name="nombre" required>
 
-    <label>Departamento:</label>
-    <input type="text" [(ngModel)]="departamento" name="departamento" required>
+    <label>Apellido:</label>
+    <input type="text" [(ngModel)]="apellido" name="apellido" required>
+
+    <label>Cedula:</label>
+    <input type="number" [(ngModel)]="cedula" name="cedula" required>
+
+    <label>Telefono:</label>
+    <input type="number" [(ngModel)]="telefono" name="telefono" required>
+
+    <label>Correo electrónico:</label>
+    <input type="text" [(ngModel)]="correo" name="correo" required>
+
+    <label>Dirección de Residencia Ciudad:</label>
+    <input type="text" [(ngModel)]="direccion" name="direccion" required>
 
     <label>Ciudad:</label>
     <input type="text" [(ngModel)]="ciudad" name="ciudad" required>
 
-    <label>Dirección de Entrega:</label>
-    <input type="text" [(ngModel)]="direccionEntrega" name="direccionEntrega" required>
 
-    <label>Fecha de Reserva:</label>
-    <input type="date" [(ngModel)]="fechaReserva" name="fechaReserva" required>
-
-    <label>Fecha de Entrega:</label>
-    <input type="date" [(ngModel)]="fechaEntrega" name="fechaEntrega" required>
-
-    <div *ngFor="let producto of productos; let i = index" class="producto-linea">
-      <label>Producto #{{i + 1}}:</label>
-      <input type="text" [(ngModel)]="producto.nombre" name="productoNombre{{i}}" required>
-
-      <label>Cantidad:</label>
-      <input type="number" [(ngModel)]="producto.cantidad" name="productoCantidad{{i}}" (input)="calcularTotales()" min="1" required>
-
-      <label>Precio:</label>
-      <input type="number" [(ngModel)]="producto.precio" name="productoPrecio{{i}}" (input)="calcularTotales()" step="0.01" required>
-    </div>
-
-    <button type="button" class="agregar" (click)="agregarProducto()">+ Agregar Producto</button>
-
-    <label>Abono:</label>
-    <input type="number" [(ngModel)]="abono" name="abono" (input)="calcularTotales()" step="0.01" required>
-
-    <div class="resumen">
-      <p><strong>Total:</strong> ${{ total.toFixed(2) }}</p>
-      <p><strong>Restante:</strong> ${{ restante.toFixed(2) }}</p>
-    </div>
-
-    <button type="submit" class="enviar">Enviar Pedido</button>
+    <button type="submit" class="enviar">Agregar</button>
   </form>
 </div>
 
