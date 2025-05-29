@@ -6,9 +6,5 @@ export interface Client {
   telefono: number;
   correo: string;
   direccion: string;
-  ciudad: {
-    id: string;
-    nombre: string;
-    departamento: string;
-  };
+  ciudad: string;
 }

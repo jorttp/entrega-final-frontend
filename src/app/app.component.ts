@@ -22,11 +22,7 @@ export class AppComponent {
   correo = '';
   direccion = '';
 
-  ciudad = {
-    id: '00000000-0000-0000-0000-000000000000',
-    nombre: '',
-    departamento: ''
-  };
+  ciudad = '';
 
   constructor(private clientService: ClientServiceService) {}
 
@@ -39,12 +35,9 @@ export class AppComponent {
       telefono: this.telefono,
       correo: this.correo,
       direccion: this.direccion,
-      ciudad: {
-        id: this.ciudad.id,
-        nombre: this.ciudad.nombre,
-        departamento: this.ciudad.departamento
-      }
-    };
+      ciudad: this.ciudad,
+
+    }
 
     this.clientService.createClient(cliente).subscribe({
       next: (respuesta) => {
