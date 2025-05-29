@@ -21,7 +21,6 @@ export class AppComponent {
   telefono = 0;
   correo = '';
   direccion = '';
-
   ciudad = '';
 
   constructor(private clientService: ClientServiceService) {}
