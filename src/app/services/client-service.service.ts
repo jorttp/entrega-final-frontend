@@ -7,7 +7,7 @@ import {Client} from '@app/models';
   providedIn: 'root'
 })
 export class ClientServiceService {
-  private apiUrl = 'http://localhost:8080/clientes';
+  private apiUrl = 'http://localhost:8080/api/v1/clientes';
   private http = inject(HttpClient);
 
   createClient(cliente: Client): Observable<Client> {
