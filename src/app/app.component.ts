@@ -27,7 +27,6 @@ export class AppComponent {
 
   agregarCliente() {
     const cliente: Client = {
-      id: this.id,
       nombre: this.nombre,
       apellido: this.apellido,
       cedula: this.cedula,
