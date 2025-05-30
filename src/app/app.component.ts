@@ -22,7 +22,18 @@ export class AppComponent {
   correo = '';
   direccion = '';
   ciudad = '';
+  listaCiudades = [
+    { nombre: 'Medellín' },
+    { nombre: 'Bogotá' },
+    { nombre: 'Cali' },
+    { nombre: 'Rionegro' }
+  ];
   departamento = '';
+  listaDepartamentos = [
+    { nombre: 'Antioquia' },
+    { nombre: 'Cundinamarca' },
+    { nombre: 'Valle del cauca' },
+  ];
 
   constructor(private clientService: ClientServiceService) {}
 
