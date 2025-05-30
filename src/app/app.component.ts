@@ -20,7 +20,7 @@ export class AppComponent {
   cedula = '';
   telefono = '';
   correo = '';
-  direccion = '';
+  direccionResidencia = '';
   ciudad = '';
   listaCiudades = [
     { nombre: 'Medellín' },
@@ -38,7 +38,7 @@ export class AppComponent {
   constructor(private clientService: ClientServiceService) {}
 
   agregarCliente() {
-    if (!this.nombre || !this.apellido || !this.cedula || !this.telefono || !this.correo || !this.direccion || !this.ciudad || !this.departamento) {
+    if (!this.nombre || !this.apellido || !this.cedula || !this.telefono || !this.correo || !this.direccionResidencia || !this.ciudad || !this.departamento) {
       alert('Por favor completa todos los campos');
       return;
     }
@@ -55,7 +55,7 @@ export class AppComponent {
       cedula: this.cedula,
       telefono: this.telefono,
       correo: this.correo,
-      direccion: this.direccion,
+      direccionResidencia: this.direccionResidencia,
       ciudad: this.ciudad,
       departamento: this.departamento,
     };

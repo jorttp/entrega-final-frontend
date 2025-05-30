@@ -4,7 +4,7 @@ export interface Client {
   cedula: string;
   telefono: string;
   correo: string;
-  direccion: string;
+  direccionResidencia: string;
   ciudad: string;
   departamento: string;
 }

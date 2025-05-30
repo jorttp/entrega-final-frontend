@@ -33,7 +33,7 @@
     </div>
 
     <label>Dirección:</label>
-    <input type="text" [(ngModel)]="direccion" name="direccion" required #direccionCtrl="ngModel">
+    <input type="text" [(ngModel)]="direccionResidencia" name="direccion" required #direccionCtrl="ngModel">
     <div *ngIf="direccionCtrl.invalid && direccionCtrl.touched" class="error">Dirección requerida</div>
 
     <label>Ciudad:</label>
