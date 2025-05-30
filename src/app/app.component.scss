@@ -28,6 +28,13 @@ form {
   padding: 30px;
   border-radius: $border-radius;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
+  .error {
+    color: red;
+    font-size: 0.9em;
+    margin-bottom: 10px;
+  }
+
 }
 
 label {
@@ -70,4 +77,11 @@ button {
     background-color: darken($accent-color, 14%);
     transform: scale(1.04);
   }
+
+  .error {
+    color: red;
+    font-size: 0.9em;
+    margin-bottom: 10px;
+  }
+
 }

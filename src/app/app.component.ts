@@ -17,15 +17,27 @@ export class AppComponent {
   id = '00000000-0000-0000-0000-000000000000';
   nombre = '';
   apellido = '';
-  cedula = 0;
-  telefono = 0;
+  cedula = '';
+  telefono = '';
   correo = '';
   direccion = '';
   ciudad = '';
+  departamento = '';
 
   constructor(private clientService: ClientServiceService) {}
 
   agregarCliente() {
+    if (!this.nombre || !this.apellido || !this.cedula || !this.telefono || !this.correo || !this.direccion || !this.ciudad || !this.departamento) {
+      alert('Por favor completa todos los campos');
+      return;
+    }
+
+    const correoValido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.correo);
+    if (!correoValido) {
+      alert('Correo electrónico no válido');
+      return;
+    }
+
     const cliente: Client = {
       nombre: this.nombre,
       apellido: this.apellido,
@@ -34,8 +46,8 @@ export class AppComponent {
       correo: this.correo,
       direccion: this.direccion,
       ciudad: this.ciudad,
-
-    }
+      departamento: this.departamento,
+    };
 
     this.clientService.createClient(cliente).subscribe({
       next: (respuesta) => {
