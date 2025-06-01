@@ -23,7 +23,7 @@ export class AppComponent {
   direccionResidencia = '';
   ciudad = '';
   listaCiudades = [
-    { nombre: 'Medellín' },
+    { nombre: 'Medellí' },
     { nombre: 'Bogotá' },
     { nombre: 'Cali' },
     { nombre: 'Rionegro' }
