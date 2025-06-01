@@ -1,1 +1,1 @@
-export * from './client-service.service'
+export * from './categoriaProducto-service.service'
