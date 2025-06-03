@@ -1,4 +1,4 @@
 export interface CategoriaProducto {
-  prodcuto: string;
-  categoria: string;
+  prodcuto: {nombre: string};
+  categoria: {nombre: string};
 }
