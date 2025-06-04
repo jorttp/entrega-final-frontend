@@ -27,9 +27,11 @@ export class AppComponent {
     }
 
     const categoriaProducto: CategoriaProducto = {
-      prodcuto: {nombre: this.producto},
+      producto: {nombre: this.producto},
       categoria: {nombre: this.categoria},
     };
+
+
 
     this.categoriaProductoService.createCategoriaProducto(categoriaProducto).subscribe({
       next: (respuesta) => {
